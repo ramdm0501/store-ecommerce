@@ -24,29 +24,131 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    protected $namespace = 'App\Http\Controllers';
+
+
+
     public function boot()
     {
-        $this->configureRateLimiting();
-
-        $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->group(base_path('routes/api.php'));
-
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-        });
+        parent::boot();
     }
+
+    public function map()
+
+    {
+
+
+        $this->mapApiRoutes();
+
+
+        $this->mapWebRoutes();
+
+
+
+
+        $this->mapAdminRoutes();
+
+
+        $this->mapSiteRoutes();
+
+    }
+
+
+    protected function mapWebRoutes()
+
+    {
+
+        Route::middleware('web')
+
+            ->namespace($this->namespace)
+
+            ->group(base_path('routes/web.php'));
+
+    }
+
 
     /**
-     * Configure the rate limiters for the application.
+
+     * Define the "api" routes for the application.
+
      *
+
+     * These routes are typically stateless.
+
+     *
+
      * @return void
+
      */
-    protected function configureRateLimiting()
+
+    protected function mapApiRoutes()
+
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
+
+        Route::prefix('api')
+
+            ->middleware('api')
+
+            ->namespace($this->namespace)
+
+            ->group(base_path('routes/api.php'));
+
     }
+
+
+    /**
+
+     * Define the "admin" routes for the application.
+
+     *
+
+     * These routes are typically stateless.
+
+     *
+
+     * @return void
+
+     */
+
+    protected function mapAdminRoutes()
+
+    {
+
+        Route::prefix('admin')
+
+            ->namespace($this->namespace)
+
+            ->group(base_path('routes/admin.php'));
+
+    }
+
+
+    /**
+
+     * Define the "site" routes for the application.
+
+     *
+
+     * These routes are typically stateless.
+
+     *
+
+     * @return void
+
+     */
+
+    protected function mapSiteRoutes()
+
+    {
+
+        Route::prefix('site')
+
+            ->namespace($this->namespace)
+
+            ->group(base_path('routes/site.php'));
+
+    }
+
+
+
 }
