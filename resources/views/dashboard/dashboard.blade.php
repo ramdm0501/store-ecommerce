@@ -6,7 +6,33 @@
             </div>
             <div class="content-body">
                 <div id="crypto-stats-3" class="row">
-                    <div class="col-xl-4 col-12">
+                    <div class="col-xl-3 col-12">
+                        <div class="card crypto-card-3 pull-up">
+                            <div class="card-content">
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h1><i class="fa-solid fa-dollar-sign"></i></h1>
+                                        </div>
+                                        <div class="col-8 pl-2">
+                                            <h4>Total Sales</h4>
+
+                                        </div>
+                                        <div class="col-8 text-right">
+                                            <h4>$9,980</h4>
+                                            <h6 class="success darken-4">31% <i class="la la-arrow-up"></i></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <canvas id="btc-chartjs" class="height-75"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -32,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-12">
+                    <div class="col-xl-3 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -58,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-12">
+                    <div class="col-xl-3 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
